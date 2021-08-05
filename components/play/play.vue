@@ -11,10 +11,10 @@
 			<!-- 标题 -->
 			<view class="title">
 				<text class="name">
-					剩下的果实
+					{{ currentSong.name }}
 				</text>
 				<text class="artist">
-					阿虾
+					{{ currentSong.artist }}
 				</text>
 			</view>
 			<!-- 报错 -->
@@ -30,7 +30,7 @@
 		<view class="lyric">
 			<!-- 旋转图片 -->
 			<view class="play_tx">
-				<image src="../../static/images/me.png" mode=""  :class="{ imgRotate: playing}"></image>
+				<image :src="currentSong.pic" mode=""  :class="{ imgRotate: playing}"></image>
 			</view>
 			<!-- 歌词区 -->
 			<view class="song_lyric">
@@ -58,7 +58,7 @@
 		
 		<!-- 进度条 -->
 		<view class="progressbar">
-			<progressBar :current="current" :duration="duration" @currentChange="currentChange" isInfo isTouchTime></progressBar>
+			<progressBar :current="currentTime" :duration="duration" @currentChange="currentChange" isInfo isTouchTime></progressBar>
 		</view>
 		
 		<!-- 控制台 -->
@@ -83,6 +83,7 @@
 				</view>
 			</view>
 		</view>
+		<my-audio :src="audioSrc"></my-audio>
 	</view>
 </template>
 
@@ -93,26 +94,30 @@
 		
 		data() {
 			return {
-				current: 30,
-				duration: 60
+				audioSrc: ''
 			}
 		},
 		onLoad(option) {
-			// console.log(option)
+			// console.log(this.$store.state.playList)
 		},
+		// 方法
 		methods: {
 			currentChange(time) {
-				this.current = time
+				
+				this.$audio.seek(time)
+				this.$audio.play()
 			},
 			// 后退
 			retreat() {
 				uni.navigateBack()
 			}
 		},
+		// 注册组件
 		components: {
 			progressBar,
 			control
 		},
+		// 计算属性
 		computed: {
 			fullScreen() {
 				return this.$store.fullScreen
@@ -122,7 +127,24 @@
 			},
 			currentSong() {
 				return this.$store.getters.currentSong
+			},
+			duration() {
+				return parseInt(this.$store.state.duration)
+			},
+			currentTime() {
+				return parseInt(this.$store.state.currentTime)
 			}
+		},
+		// 监听
+		watch: {
+			currentSong: {
+				handler(newSong) {
+					if (!newSong.id || !newSong.url) return 
+					this.audioSrc = newSong.url
+				},
+				immediate: true,
+				deep: true
+			},
 		}
 	}
 </script>
@@ -186,6 +208,10 @@
 				}
 				.artist {
 					color: $fontColor-8;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					
 				}
 				
 			}

@@ -23,7 +23,9 @@ const state = {
     // 播放器状态
     fullScreen: true,
 	// 播放进度
-	currentTime: 0
+	currentTime: 0,
+	// 音效长度
+	duration: 0,
 
 }
 export default state

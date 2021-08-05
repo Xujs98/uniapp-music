@@ -78,6 +78,15 @@
             }
             
         }
+        ,{
+            "path" : "components/play/myAudio",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "audio组件",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

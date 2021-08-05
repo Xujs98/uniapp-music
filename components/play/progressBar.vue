@@ -34,9 +34,12 @@
 				startX: 0,
 				pageX: 0,
 				look: false,
+				progressWidth: 0,
+				currentTime: 0,
 			};
 		},
 		async mounted() {
+			this.currentTime = this.current
 			this.gardenW = uni.upx2px(10)
 			this.progress = await select('#progress')
 			this.paddingLelf = this.progress.left
@@ -44,10 +47,12 @@
 		},
 		props: {
 			current: {
-				type: Number
+				type: Number,
+				default: 0
 			},
 			duration: {
-				type: Number
+				type: Number,
+				default: 1
 			},
 			isInfo: {
 				type: Boolean,
@@ -59,11 +64,8 @@
 			}
 		},
 		methods: {
-			scroll(event) {
-				console.log(event)
-			},
 			progressClick(e) {
-				const current = parseInt((e.touches[0].pageX - this.paddingLelf) / this.power)
+				const current = parseInt((e.touches[0].pageX - this.paddingLelf) / (this.progress.width / this.duration))
 				this.$emit('currentChange', current)
 			},
 			progressStart(e) {
@@ -83,19 +85,22 @@
 			},
 			progressEnd() {
 				this.look = false
-				let current = parseInt(this.pageX / this.power)
+				let current = parseInt(this.pageX / (this.progress.width / this.duration))
 				this.$emit('currentChange', current)
 			}
 		},
 		computed: {
-			currentWidth() {
-				if (this.look) {
-					return this.pageX 
+			currentWidth: {
+				get() {
+					if (this.look) {
+						return this.pageX 
+					}
+					return this.current * (this.progress.width / this.duration) + 10
 				}
-				return this.current * this.power + this.gardenW 
+				
 			},
 			touchTime() {
-				return parseInt(this.pageX / this.power)
+				return parseInt(this.pageX / (this.progress.width / this.duration))
 			}
 		}
 	}

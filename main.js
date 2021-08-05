@@ -6,6 +6,8 @@ import MeLoading from './components/loading/loading.vue'
 import loading from './components/loading/js/loading.js'
 import request from 'service/request.js'
 import goTo from './utiles/goTo.js'
+import MyAudio from './components/play/myAudio.vue'
+import audio from './audio/myaudio.js'
 
 // 全局过滤器
 Vue.filter('time', (val) => {
@@ -33,10 +35,14 @@ Vue.config.productionTip = false
 // 挂载
 Vue.prototype.$store = store
 Vue.prototype.$Goto = goTo
+Vue.prototype.$audio = audio
 
 Vue.prototype.$loading = loading
-Vue.component('loading', MeLoading)
 Vue.prototype.$http = request
+// 全局组件
+Vue.component('loading', MeLoading)
+Vue.component('myAudio', MyAudio)
+
 App.mpType = 'app'
 
 const app = new Vue({

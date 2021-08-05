@@ -32,6 +32,15 @@ const mutations = {
     setPlayList(state, list) {
         state.playList = list
     },
+	// 添加至播放列表
+	addPlayList(state, song) {
+		state.playList.push(song)
+	},
+	// 播放当前歌曲
+	selectCurrentPlaySong(state, song) {
+		state.playList.unshift(song)
+	},
+	
     // 设置播放模式
     setPlayMode(state, mode) {
         state.playMode = mode
@@ -43,7 +52,15 @@ const mutations = {
     // 设置播放器状态
     setFullScreen(state, isFullScreen) {
         state.fullScreen = isFullScreen
-    }
+    },
+	// 设置当前播放进度
+	setCurrentTime(state, time) {
+		state.currentTime = time
+	},
+	// 设置音效长度
+	setDuration(state, time) {
+		state.duration = time
+	}
 }
 
 

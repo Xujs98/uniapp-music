@@ -22,7 +22,6 @@
 				start_active: false,
 				play_active: false,
 				next_active: false,
-				isPlay: false
 			};
 		},
 		methods: {
@@ -33,19 +32,27 @@
 				}, 300)
 			},
 			btn_play() {
-				this.isPlay = !this.isPlay
+				if (this.$store.state.playing) {
+					this.$audio.pause()
+				} else {
+					this.$audio.play()
+				}
 				this.play_active = true
-				this.$store.commit('setPlayingState', !this.$store.state.playing)
-				console.log(this.$store.getters.currentSong)
 				setTimeout(() => {
 					this.play_active = false
 				}, 300)
 			},
 			btn_next() {
+				
 				this.next_active = true
 				setTimeout(() => {
 					this.next_active = false
 				}, 300)
+			}
+		},
+		computed: {
+			isPlay() {
+				return this.$store.state.playing
 			}
 		}
 	}

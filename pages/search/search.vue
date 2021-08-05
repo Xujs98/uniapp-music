@@ -2,7 +2,7 @@
 	<view class="search_body">
 		<view class="header">
 			<view class="inp">
-				<input type="text" value="" placeholder="歌曲/歌单/歌手" v-model="searchInfo"/>
+				<input type="text" value="" placeholder="歌曲/歌单/歌手" v-model="searchInfo" focus/>
 			</view>
 			<text @click="searchClick">搜索</text>
 		</view>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
 	export default {
 		data() {
 			return {
@@ -41,6 +42,7 @@
 			// this.musicName = currentPage.options.name
 		},
 		methods: {
+			// 搜索被点击
 			async searchClick() {
 				const { data: res } = await this.$http.get('http://192.168.0.105:3000/api/private/g1/music/search', {
 					name: this.searchInfo,
@@ -48,17 +50,26 @@
 				})
 				this.musicData = res.data
 			},
-			async songClick(data) {
+			// 歌曲被点击
+			async songClick(item) {
 				const {data: res} = await this.$http.get('http://192.168.0.105:3000/api/private/g1/music/song', {
-					id: data.id,
-					artist: data.name,
-					album: data.ablum
+					id: item.id,
+					artist: item.name,
+					album: item.ablum
 				})
-				// uni.navigateTo({
-				// 	url: '/components/play/play'
-				// })
+				if (res.status !== 200) {
+					uni.showToast({
+						title: res.message,
+						duration: 2000,
+						icon: 'error'
+					})
+					return 
+				}
+				this.selectPlaySong(res.data)
+				// 跳转
 				this.$Goto.play(res.data)
-			}
+			},
+			...mapActions(['selectPlaySong'])
 		}
 	}
 </script>
