@@ -2,11 +2,21 @@
 	<view class="progressbar_main">
 		<view class="progressbar_main">
 			<!-- 未选中 -->
-			<view class="progress_backgroundColor" id="progress" @click="progressClick($event)">
+			<view 
+				class="progress_backgroundColor" 
+				id="progress" 
+				@click="progressClick($event)"
+				:style="{height: height + 'rpx'}"
+			>
 				<!-- 选中 -->
 				<view class="actionColor" :style="{ 'width':  currentWidth + 'px'}">
 					<!-- 小圆点 -->
-					<view class="garden" @touchstart="progressStart" @touchmove="progressMove" @touchend="progressEnd">
+					<view class="garden" 
+						@touchstart="progressStart" 
+						@touchmove="progressMove" 
+						@touchend="progressEnd"
+						:style="{border: radius + 'rpx solid #fff', width: radius + 'rpx', height: radius + 'rpx'}"
+					>
 						<view class="time" v-show="isTouchTime && look ">{{ touchTime | time}}</view>
 					</view>
 					
@@ -44,6 +54,7 @@
 			this.progress = await select('#progress')
 			this.paddingLelf = this.progress.left
 			this.power = this.progress.width / this.duration
+			
 		},
 		props: {
 			current: {
@@ -61,20 +72,34 @@
 			isTouchTime: {
 				type: Boolean,
 				default: false,
+			},
+			isTouchmove: {
+				type: Boolean,
+				default: true
+			},
+			radius: {
+				type: Number,
+				default: 10
+			},
+			height: {
+				type: Number,
+				default: 10
 			}
 		},
 		methods: {
 			progressClick(e) {
+				if (!this.isTouchmove) return 
 				const current = parseInt((e.touches[0].pageX - this.paddingLelf) / (this.progress.width / this.duration))
 				this.$emit('currentChange', current)
 			},
 			progressStart(e) {
+				if (!this.isTouchmove) return 
 				// this.startX = e.touches[0].pageX
 				// console.log(e.touches[0].pageX)
 				this.look = true
 			},
 			progressMove(e) {
-				if (!this.look) return
+				if (!this.look || !this.isTouchmove) return
 				let pageX = e.touches[0].pageX - this.gardenW
 				if(pageX < 0) {
 					pageX = 0
@@ -84,6 +109,7 @@
 				this.pageX = pageX
 			},
 			progressEnd() {
+				if (!this.isTouchmove) return 
 				this.look = false
 				let current = parseInt(this.pageX / (this.progress.width / this.duration))
 				this.$emit('currentChange', current)

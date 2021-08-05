@@ -26,6 +26,7 @@ function AddPlayList({ commit }, { song}) {
 function selectPlaySong( { commit }, song) {
 	commit('setPlayMode', PLAY_MODE.sequence)
 	commit('setPlayingState', true)
+	commit('setFullScreen', true)
 	commit('selectCurrentPlaySong', song)
 	commit('setCurrentIndex', 0)
 }

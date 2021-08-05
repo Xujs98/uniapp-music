@@ -58,7 +58,7 @@
 		
 		<!-- 进度条 -->
 		<view class="progressbar">
-			<progressBar :current="currentTime" :duration="duration" @currentChange="currentChange" isInfo isTouchTime></progressBar>
+			<progressBar :current="currentTime" :duration="duration" @currentChange="currentChange" isInfo isTouchTime ></progressBar>
 		</view>
 		
 		<!-- 控制台 -->
@@ -83,7 +83,7 @@
 				</view>
 			</view>
 		</view>
-		<my-audio :src="audioSrc"></my-audio>
+		<!-- <my-audio :src="audioSrc"></my-audio> -->
 	</view>
 </template>
 
@@ -98,7 +98,11 @@
 			}
 		},
 		onLoad(option) {
-			// console.log(this.$store.state.playList)
+			if(!this.$store.state.playing) return 
+			this.$audio.src = option.url
+		},
+		onBackPress() {
+			this.$store.commit('setFullScreen', false)
 		},
 		// 方法
 		methods: {
@@ -110,6 +114,7 @@
 			// 后退
 			retreat() {
 				uni.navigateBack()
+				this.$store.commit('setFullScreen', false)
 			}
 		},
 		// 注册组件

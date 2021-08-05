@@ -18,6 +18,7 @@
 			</view>
 		</view>
 		<loading></loading>
+		<my-audio :src="audioSrc" :controls="!fullScreen"></my-audio>
 	</view>
 </template>
 
@@ -32,7 +33,7 @@
 				audioImg: '',
 				audioName: '',
 				author: '',
-				poster: ''
+				poster: '',
 			};
 		},
 		onShow() {
@@ -67,9 +68,27 @@
 				}
 				this.selectPlaySong(res.data)
 				// 跳转
-				this.$Goto.play(res.data)
+				this.$Goto.play(res.data, true)
 			},
 			...mapActions(['selectPlaySong'])
+		},
+		computed: {
+			currentSong() {
+				return this.$store.getters.currentSong
+			},
+			fullScreen() {
+				return this.$store.state.fullScreen
+			},
+		},
+		watch: {
+			currentSong: {
+				handler(newSong) {
+					if (!newSong.id || !newSong.url) return 
+					this.audioSrc = newSong.url
+				},
+				immediate: true,
+				deep: true
+			},
 		}
 	}
 </script>

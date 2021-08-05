@@ -4,9 +4,18 @@
  */
 
 const Goto = {
-	play(data, animationDuration = 300) {
+	play(data, close = false, animationDuration = 300) {
+		
 		let url = '/components/play/play'
 		url += (url.indexOf('?') < 0? '?' : '&') + _param(data)
+		if (close) {
+			uni.redirectTo({
+			    url,
+				animationType: 'slide-in-bottom',
+				animationDuration
+			});
+			return 
+		}
 		uni.navigateTo({
 			url,
 			animationType: 'slide-in-bottom',

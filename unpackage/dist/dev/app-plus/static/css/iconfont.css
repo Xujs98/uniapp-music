@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-bofangzhong:before {
+  content: "\e68f";
+}
+
+.icon-zanting:before {
+  content: "\e691";
+}
+
 .icon-bofangliebiao:before {
   content: "\e696";
 }
@@ -72,4 +80,3 @@
 .icon-xiayishou:before {
   content: "\e61f";
 }
-
