@@ -4441,87 +4441,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-uni-view",
-    {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm._$g(0, "v-show"),
-          expression: "_$g(0,'v-show')"
-        }
-      ],
-      staticClass: _vm._$g(0, "sc"),
-      attrs: { _i: 0 }
-    },
-    [
-      _c(
+  return _vm._$g(0, "i")
+    ? _c(
         "v-uni-view",
-        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+        { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+            { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
             [
-              _c("v-uni-image", {
-                class: _vm._$g(3, "c"),
-                attrs: { src: _vm._$g(3, "a-src"), mode: "", _i: 3 }
-              })
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            {
-              staticClass: _vm._$g(4, "sc"),
-              attrs: { _i: 4 },
-              on: {
-                click: function($event) {
-                  return _vm.$handleViewEvent($event)
-                }
-              }
-            },
-            [
-              _c("v-uni-text", { attrs: { _i: 5 } }, [
-                _vm._v(_vm._$g(5, "t0-0") + "-" + _vm._$g(5, "t0-1"))
-              ])
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
-            [
-              _c("v-uni-view", {
-                staticClass: _vm._$g(7, "sc"),
-                class: _vm._$g(7, "c"),
-                attrs: { _i: 7 },
-                on: {
-                  click: function($event) {
-                    return _vm.$handleViewEvent($event)
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+                [
+                  _c("v-uni-image", {
+                    class: _vm._$g(3, "c"),
+                    attrs: { src: _vm._$g(3, "a-src"), mode: "", _i: 3 }
+                  })
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g(4, "sc"),
+                  attrs: { _i: 4 },
+                  on: {
+                    click: function($event) {
+                      return _vm.$handleViewEvent($event)
+                    }
                   }
-                }
-              }),
-              _c("v-uni-view", {
-                staticClass: _vm._$g(8, "sc"),
-                attrs: { _i: 8 }
-              })
+                },
+                [
+                  _c("v-uni-text", { attrs: { _i: 5 } }, [
+                    _vm._v(_vm._$g(5, "t0-0") + "-" + _vm._$g(5, "t0-1"))
+                  ])
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+                [
+                  _c("v-uni-view", {
+                    staticClass: _vm._$g(7, "sc"),
+                    class: _vm._$g(7, "c"),
+                    attrs: { _i: 7 },
+                    on: {
+                      click: function($event) {
+                        return _vm.$handleViewEvent($event)
+                      }
+                    }
+                  }),
+                  _c("v-uni-view", {
+                    staticClass: _vm._$g(8, "sc"),
+                    attrs: { _i: 8 }
+                  })
+                ],
+                1
+              )
             ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+            [_c("progressBar", { attrs: { _i: 10 } })],
             1
           )
         ],
         1
-      ),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
-        [_c("progressBar", { attrs: { _i: 10 } })],
-        1
       )
-    ],
-    1
-  )
+    : _vm._e()
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -4786,87 +4777,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-uni-view",
-    {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm._$g(0, "v-show"),
-          expression: "_$g(0,'v-show')"
-        }
-      ],
-      staticClass: _vm._$g(0, "sc"),
-      attrs: { _i: 0 }
-    },
-    [
-      _c(
+  return _vm._$g(0, "i")
+    ? _c(
         "v-uni-view",
-        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+        { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+            { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
             [
-              _c("v-uni-image", {
-                class: _vm._$g(3, "c"),
-                attrs: { src: _vm._$g(3, "a-src"), mode: "", _i: 3 }
-              })
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            {
-              staticClass: _vm._$g(4, "sc"),
-              attrs: { _i: 4 },
-              on: {
-                click: function($event) {
-                  return _vm.$handleViewEvent($event)
-                }
-              }
-            },
-            [
-              _c("v-uni-text", { attrs: { _i: 5 } }, [
-                _vm._v(_vm._$g(5, "t0-0") + "-" + _vm._$g(5, "t0-1"))
-              ])
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
-            [
-              _c("v-uni-view", {
-                staticClass: _vm._$g(7, "sc"),
-                class: _vm._$g(7, "c"),
-                attrs: { _i: 7 },
-                on: {
-                  click: function($event) {
-                    return _vm.$handleViewEvent($event)
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+                [
+                  _c("v-uni-image", {
+                    class: _vm._$g(3, "c"),
+                    attrs: { src: _vm._$g(3, "a-src"), mode: "", _i: 3 }
+                  })
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g(4, "sc"),
+                  attrs: { _i: 4 },
+                  on: {
+                    click: function($event) {
+                      return _vm.$handleViewEvent($event)
+                    }
                   }
-                }
-              }),
-              _c("v-uni-view", {
-                staticClass: _vm._$g(8, "sc"),
-                attrs: { _i: 8 }
-              })
+                },
+                [
+                  _c("v-uni-text", { attrs: { _i: 5 } }, [
+                    _vm._v(_vm._$g(5, "t0-0") + "-" + _vm._$g(5, "t0-1"))
+                  ])
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+                [
+                  _c("v-uni-view", {
+                    staticClass: _vm._$g(7, "sc"),
+                    class: _vm._$g(7, "c"),
+                    attrs: { _i: 7 },
+                    on: {
+                      click: function($event) {
+                        return _vm.$handleViewEvent($event)
+                      }
+                    }
+                  }),
+                  _c("v-uni-view", {
+                    staticClass: _vm._$g(8, "sc"),
+                    attrs: { _i: 8 }
+                  })
+                ],
+                1
+              )
             ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+            [_c("progressBar", { attrs: { _i: 10 } })],
             1
           )
         ],
         1
-      ),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
-        [_c("progressBar", { attrs: { _i: 10 } })],
-        1
       )
-    ],
-    1
-  )
+    : _vm._e()
 }
 var recyclableRender = false
 var staticRenderFns = []

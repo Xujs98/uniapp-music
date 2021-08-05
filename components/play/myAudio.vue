@@ -1,5 +1,5 @@
 <template>
-	<view  v-show="controls" class="myaudio" >
+	<view  v-if="controls" class="myaudio" >
 		<view class="info">
 			<!-- 图像 -->
 			<view class="pic">
@@ -67,7 +67,6 @@
 				return parseInt(this.$store.state.duration)
 			},
 			currentTime() {
-				console.log(parseInt(this.$store.state.currentTime))
 				return parseInt(this.$store.state.currentTime)
 			},
 			playing() {

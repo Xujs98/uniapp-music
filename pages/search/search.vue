@@ -68,7 +68,7 @@
 				}
 				this.selectPlaySong(res.data)
 				// 跳转
-				this.$Goto.play(res.data, true)
+				this.$Goto.play(res.data)
 			},
 			...mapActions(['selectPlaySong'])
 		},
