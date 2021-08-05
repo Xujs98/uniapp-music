@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "components/tabBar/tabBar",
+    "pages/me/me",
+    "pages/home/home",
+    "components/loading/loading",
+    "pages/search/search"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "矩龙动听",
+    "navigationBarBackgroundColor": "#000",
+    "backgroundColor": "#000",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,1 @@
+<view class="body_home data-v-92bb8f34"><view class="header data-v-92bb8f34"><view data-event-opts="{{[['tap',[['searchClick',['$event']]]]]}}" class="search data-v-92bb8f34" bindtap="__e"><image src="/static/images/search.png" mode class="data-v-92bb8f34"></image><text class="data-v-92bb8f34">搜索:歌曲/歌手</text></view></view></view>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "usingComponents": {
+    "loading": "/components/loading/loading",
+    "tab-bar": "/components/tabBar/tabBar",
+    "home": "/pages/home/home",
+    "me": "/pages/me/me"
+  }
+}
