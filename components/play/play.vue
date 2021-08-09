@@ -70,7 +70,7 @@
 		<view class="playmode">
 			<view class="info">
 				<!-- 模式 -->
-				<view class="mode iconfont icon-suijibofang iconfontSize">
+				<view class="mode iconfont icon-suijibofang iconfontSize" :class="[modeIcon]" @click="changePlayMode">
 					
 				</view>
 				<!-- 评论 -->
@@ -90,6 +90,8 @@
 <script>
 	import progressBar from './progressBar'
 	import control from './control'
+	import { PLAY_MODE } from '../../conf/constant.js'
+	import { mapActions } from 'vuex'
 	export default {
 		
 		data() {
@@ -107,7 +109,6 @@
 		// 方法
 		methods: {
 			currentChange(time) {
-				
 				this.$audio.seek(time)
 				this.$audio.play()
 			},
@@ -115,7 +116,14 @@
 			retreat() {
 				uni.navigateBack()
 				this.$store.commit('setFullScreen', false)
-			}
+			},
+			// 切换播放模式
+			changePlayMode() {
+				let mode = (this.playMode + 1) % 3
+				this.changeMode(mode)
+			},
+			
+			...mapActions(['changeMode'])
 		},
 		// 注册组件
 		components: {
@@ -124,20 +132,35 @@
 		},
 		// 计算属性
 		computed: {
+			// 播放器全屏状态
 			fullScreen() {
 				return this.$store.fullScreen
 			},
+			// 播放状态
 			playing() {
 				return this.$store.state.playing
 			},
+			// 歌曲信息
 			currentSong() {
 				return this.$store.getters.currentSong
 			},
+			// 歌曲时长
 			duration() {
 				return parseInt(this.$store.state.duration)
 			},
+			// 歌曲当前进度
 			currentTime() {
 				return parseInt(this.$store.state.currentTime)
+			},
+			// 播放模式
+			playMode() {
+				return this.$store.state.playMode
+			},
+			// 播放模式icon
+			modeIcon() {
+				const playMode = this.playMode
+				return playMode === PLAY_MODE.sequence? 'icon-shunxubofang' : playMode === PLAY_MODE.random? 'icon-suijibofang' : 'icon-danquxunhuan'
+				
 			}
 		},
 		// 监听

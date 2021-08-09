@@ -41,9 +41,23 @@ function randomPlay({ commit }, list) {
     commit('setCurrentIndex', 0)
 }
 
+// 播放模式切换
+function changeMode({ commit, state, getters }, mode) {
+	const currentId = getters.currentSong.id
+	if (mode === PLAY_MODE.random) {
+		commit('setPlayList', shuffle(state.playList))
+	} else  {
+		commit('setPlayList', state.playList)
+	}
+	const index = state.playList.findIndex(song => song.id === currentId)
+	commit('setCurrentIndex', index)
+	commit('setPlayMode', mode)
+}
+
 export {
     selectPlay,
 	randomPlay,
 	selectPlaySong,
-	AddPlayList
+	AddPlayList,
+	changeMode
 } 

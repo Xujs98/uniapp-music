@@ -114,7 +114,6 @@
 					title: '添加成功',
 					duration: 2000
 				})
-				console.log(this.$store.state.playList)
 			},
 			...mapActions(['selectPlaySong', 'AddPlayList'])
 		},
