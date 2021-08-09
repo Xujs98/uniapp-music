@@ -47,7 +47,10 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "搜索页面",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"app-plus": {
+					"bounce": "none"
+				}
             }
             
         }
@@ -94,5 +97,6 @@
 		"navigationBarBackgroundColor": "#000",
 		"backgroundColor": "#000",
 		"navigationStyle": "custom"
+		
 	}
 }

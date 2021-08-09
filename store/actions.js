@@ -16,7 +16,7 @@ function selectPlay({ commit }, { list, index }) {
 }
 
 // 添加播放序列
-function AddPlayList({ commit }, { song}) {
+function AddPlayList({ commit },song) {
 	commit('setPlayMode', PLAY_MODE.sequence)
 	commit('setPlayingState', true)
 	commit('addPlayList', song)

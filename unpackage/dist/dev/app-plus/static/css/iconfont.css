@@ -13,6 +13,34 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-jia:before {
+  content: "\e656";
+}
+
+.icon-shezhi:before {
+  content: "\e604";
+}
+
+.icon-theme:before {
+  content: "\e66f";
+}
+
+.icon-jia1:before {
+  content: "\e608";
+}
+
+.icon-cha:before {
+  content: "\e61c";
+}
+
+.icon-shuaxin:before {
+  content: "\e616";
+}
+
+.icon-shanchu:before {
+  content: "\e615";
+}
+
 .icon-bofangzhong:before {
   content: "\e68f";
 }

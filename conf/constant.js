@@ -12,7 +12,14 @@ const PLAY_MODE = {
     random: 2
 }
 
+const PLAY_URL_TYPE = {
+	// MP3
+	mp3: 'url',
+	// flac
+	flac: 'url_flac'
+}
 
 export {
-    PLAY_MODE
+    PLAY_MODE,
+	PLAY_URL_TYPE
 }

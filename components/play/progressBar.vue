@@ -6,16 +6,32 @@
 				class="progress_backgroundColor" 
 				id="progress" 
 				@click="progressClick($event)"
-				:style="{height: height + 'rpx'}"
+				:style="{
+					height: height + 'rpx', 
+					backgroundColor: progressNotSelectBgColor,
+				}"
 			>
 				<!-- 选中 -->
-				<view class="actionColor" :style="{ 'width':  currentWidth + 'px'}">
+				<view class="actionColor" 
+				:style="{
+					width:  currentWidth + 'px',
+					background: progressSelectBgColor
+					
+				}"
+				
+				>
 					<!-- 小圆点 -->
 					<view class="garden" 
+						v-if="isRadius"
 						@touchstart="progressStart" 
 						@touchmove="progressMove" 
 						@touchend="progressEnd"
-						:style="{border: radius + 'rpx solid #fff', width: radius + 'rpx', height: radius + 'rpx'}"
+						:style="{
+							border: radius + 'rpx solid #fff', 
+							width: radius + 'rpx', 
+							height: radius + 'rpx',
+							backgroundColor: radiusBgColor
+						}"
 					>
 						<view class="time" v-show="isTouchTime && look ">{{ touchTime | time}}</view>
 					</view>
@@ -57,34 +73,60 @@
 			
 		},
 		props: {
+			// 当前进度
 			current: {
 				type: Number,
 				default: 0
 			},
+			// 音效时长
 			duration: {
 				type: Number,
 				default: 1
 			},
+			// 是否显示时间
 			isInfo: {
 				type: Boolean,
 				default: false
 			},
+			// 是否显示拖拽时间
 			isTouchTime: {
 				type: Boolean,
 				default: false,
 			},
+			// 是否允许操作进度条
 			isTouchmove: {
 				type: Boolean,
 				default: true
 			},
+			// 小圆点大小
 			radius: {
 				type: Number,
 				default: 10
 			},
+			// 进度条高度
 			height: {
 				type: Number,
 				default: 10
-			}
+			},
+			// 进度条未选中背景颜色
+			progressNotSelectBgColor: {
+				type: String,
+				default: '#dfe2e9'
+			},
+			// 进度条选中颜色
+			progressSelectBgColor: {
+				type: String,
+				default: 'linear-gradient(135deg, #5EFCE8 10%, #736EFE 100%)'
+			},
+			// 小圆点背景颜色
+			radiusBgColor: {
+				type: String,
+				default: '#736EFE'
+			},
+			isRadius: {
+				type: Boolean,
+				default: true
+			} 
 		},
 		methods: {
 			progressClick(e) {

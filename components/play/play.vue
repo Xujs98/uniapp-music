@@ -99,7 +99,7 @@
 		},
 		onLoad(option) {
 			if(!this.$store.state.playing) return 
-			this.$audio.src = option.url
+			this.$audio.src = this.currentSong.url
 		},
 		onBackPress() {
 			this.$store.commit('setFullScreen', false)
@@ -144,8 +144,8 @@
 		watch: {
 			currentSong: {
 				handler(newSong) {
-					if (!newSong.id || !newSong.url) return 
-					this.audioSrc = newSong.url
+					if (!newSong.id || !newSong.url) return
+					this.$audio.src = newSong.url
 				},
 				immediate: true,
 				deep: true

@@ -28,6 +28,26 @@ audio.onTimeUpdate(() => {
 
 })
 
+// 自然播放完毕
+audio.onEnded(() => {
+	const list = store.state.playList
+	if (list.length === 1) {
+		loop()
+	} else {
+		let index = store.state.currentIndex + 1
+		if (index === list.length) {
+			index = 0
+		}
+		store.commit('setCurrentIndex', index)
+		
+	}
+	
+})
 
+// 循环播放
+function loop() {
+	audio.seek(0)
+	audio.play()
+}
 
 export default audio

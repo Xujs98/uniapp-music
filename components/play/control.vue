@@ -1,7 +1,7 @@
 <template>
 	<view class="control">
 		<!-- 上一首 -->
-		<view class="btn" @click="btn_start" :class="{ active: start_active}" >
+		<view class="btn" @click="prev" :class="{ active: start_active}" >
 			<view class="iconfont icon-shangyishou" ></view>
 		</view>
 		<!-- 播放/暂停 -->
@@ -9,7 +9,7 @@
 			<view class="iconfont icon-play--filled--alt" :class="[isPlay? 'icon-pause--filled':'icon-play--filled--alt'  ]"></view>
 		</view>
 		<!-- 下一首 -->
-		<view class="btn" :class="{ active: next_active}" @click="btn_next">
+		<view class="btn" :class="{ active: next_active}" @click="next">
 			<view class="iconfont icon-xiayishou"></view>
 		</view>
 	</view>
@@ -25,34 +25,72 @@
 			};
 		},
 		methods: {
-			btn_start() {
-				this.start_active = true
-				setTimeout(() => {
-					this.start_active = false
-				}, 300)
+			// 上一首
+			prev() {
+				const list = this.playList
+				if (!list.length) return 
+				if (list.length === 1) {
+					this.loop()
+				} else {
+					let index = this.currentIndex - 1
+					if (index === -1) {
+						index = list.length - 1
+					}
+					this.$store.commit('setCurrentIndex', index)
+					this.$audio.play()
+				}
+				
+				this.setTimeoutFun('start_active')
 			},
+			// 播放/暂停
 			btn_play() {
 				if (this.$store.state.playing) {
 					this.$audio.pause()
 				} else {
 					this.$audio.play()
 				}
-				this.play_active = true
+				
+				this.setTimeoutFun('play_active')
+			},
+			// 下一首
+			next() {
+				const list = this.playList
+				if(!list.length) return 
+				if (list.length === 1) {
+					this.loop()
+					return 
+				} 
+				let index = this.currentIndex + 1
+				if (index === list.length) {
+					index = 0
+				}
+				this.$store.commit('setCurrentIndex', index)
+				this.$audio.play()
+				this.setTimeoutFun('next_active')
+			},
+			// 定时
+			setTimeoutFun(btn) {
+				this[btn] = true
 				setTimeout(() => {
-					this.play_active = false
+					this[btn] = false
 				}, 300)
 			},
-			btn_next() {
-				
-				this.next_active = true
-				setTimeout(() => {
-					this.next_active = false
-				}, 300)
+			// 循环
+			loop() {
+				// 设置当前播放进度	
+				this.$audio.seek(0)
+				this.$audio.play()
 			}
 		},
 		computed: {
 			isPlay() {
 				return this.$store.state.playing
+			},
+			currentIndex() {
+				return this.$store.state.currentIndex
+			},
+			playList() {
+				return this.$store.state.playList
 			}
 		}
 	}

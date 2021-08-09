@@ -3,7 +3,7 @@
  * @author xujs
  */
 
-import { PLAY_MODE } from '../conf/constant'
+import { PLAY_MODE, PLAY_URL_TYPE } from '../conf/constant'
 
 const state = {
     // loading 参数
@@ -26,6 +26,8 @@ const state = {
 	currentTime: 0,
 	// 音效长度
 	duration: 0,
+	// 音质类型
+	playUrlType: PLAY_URL_TYPE.mp3
 
 }
 export default state

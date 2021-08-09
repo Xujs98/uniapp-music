@@ -420,7 +420,16 @@ var render = function() {
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+            {
+              staticClass: _vm._$g(5, "sc"),
+              style: _vm._$g(5, "s"),
+              attrs: { _i: 5 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
             [
               _c("v-uni-view", {
                 staticClass: _vm._$g(6, "sc"),
@@ -548,7 +557,7 @@ if(false) {}
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../Tool/programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../../../../Tool/programming/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/lib/app-plus/getUrl.js */ 16);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! @/static/images/me.png */ 17);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! @/static/images/awn.png */ 17);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -707,13 +716,13 @@ module.exports = function (url, options) {
 
 /***/ }),
 /* 17 */
-/*!*********************************************!*\
-  !*** D:/矩龙项目/app/矩龙动听/static/images/me.png ***!
-  \*********************************************/
+/*!**********************************************!*\
+  !*** D:/矩龙项目/app/矩龙动听/static/images/awn.png ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/static/images/me.png";
+module.exports = "/static/images/awn.png";
 
 /***/ }),
 /* 18 */
@@ -1919,7 +1928,16 @@ var render = function() {
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+            {
+              staticClass: _vm._$g(5, "sc"),
+              style: _vm._$g(5, "s"),
+              attrs: { _i: 5 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
             [
               _c("v-uni-view", {
                 staticClass: _vm._$g(6, "sc"),
@@ -2047,7 +2065,7 @@ if(false) {}
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../Tool/programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../../../../Tool/programming/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/lib/app-plus/getUrl.js */ 16);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! @/static/images/me.png */ 17);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! @/static/images/awn.png */ 17);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -2775,10 +2793,15 @@ var render = function() {
               _c("v-uni-input", {
                 attrs: {
                   type: "text",
-                  value: "",
+                  "confirm-type": "搜索",
                   placeholder: "歌曲/歌单/歌手",
                   focus: true,
                   _i: 3
+                },
+                on: {
+                  confirm: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
                 },
                 model: {
                   value: _vm._$g(3, "v-model"),
@@ -2787,82 +2810,164 @@ var render = function() {
                   },
                   expression: "searchInfo"
                 }
-              })
+              }),
+              _c(
+                "v-uni-view",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm._$g(4, "v-show"),
+                      expression: "_$g(4,'v-show')"
+                    }
+                  ],
+                  staticClass: _vm._$g(4, "sc"),
+                  attrs: { _i: 4 },
+                  on: {
+                    click: function($event) {
+                      return _vm.$handleViewEvent($event)
+                    }
+                  }
+                },
+                [
+                  _c("v-uni-view", {
+                    staticClass: _vm._$g(5, "sc"),
+                    attrs: { _i: 5 }
+                  })
+                ],
+                1
+              )
             ],
             1
           ),
           _c(
             "v-uni-text",
             {
-              attrs: { _i: 4 },
+              attrs: { _i: 6 },
               on: {
                 click: function($event) {
                   return _vm.$handleViewEvent($event)
                 }
               }
             },
-            [_vm._v("搜索")]
+            [_vm._v("取消")]
           )
         ],
         1
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+        { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
         [
           _c(
-            "v-uni-view",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm._$g(6, "v-show"),
-                  expression: "_$g(6,'v-show')"
-                }
-              ],
-              staticClass: _vm._$g(6, "sc"),
-              attrs: { _i: 6 }
-            },
+            "v-uni-scroll-view",
+            { attrs: { "scroll-y": true, _i: 8 } },
             [
-              _c("h2", { attrs: { _i: 7 } }, [_vm._v("单曲")]),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
-                _vm._l(_vm._$g(9, "f"), function(itme, index, $20, $30) {
-                  return _c(
-                    "v-uni-view",
+                {
+                  directives: [
                     {
-                      key: itme,
-                      staticClass: _vm._$g("9-" + $30, "sc"),
-                      attrs: { _i: "9-" + $30 },
-                      on: {
-                        click: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        }
-                      }
-                    },
-                    [
-                      _c(
-                        "v-uni-text",
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm._$g(9, "v-show"),
+                      expression: "_$g(9,'v-show')"
+                    }
+                  ],
+                  staticClass: _vm._$g(9, "sc"),
+                  attrs: { _i: 9 }
+                },
+                [
+                  _c("h2", { attrs: { _i: 10 } }, [_vm._v("单曲")]),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+                    _vm._l(_vm._$g(12, "f"), function(itme, index, $20, $30) {
+                      return _c(
+                        "v-uni-view",
                         {
-                          staticClass: _vm._$g("10-" + $30, "sc"),
-                          attrs: { _i: "10-" + $30 }
+                          key: itme,
+                          staticClass: _vm._$g("12-" + $30, "sc"),
+                          attrs: { _i: "12-" + $30 }
                         },
-                        [_vm._v(_vm._$g("10-" + $30, "t0-0"))]
-                      ),
-                      _c(
-                        "v-uni-text",
-                        {
-                          staticClass: _vm._$g("11-" + $30, "sc"),
-                          attrs: { _i: "11-" + $30 }
-                        },
-                        [_vm._v(_vm._$g("11-" + $30, "t0-0"))]
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("13-" + $30, "sc"),
+                              attrs: { _i: "13-" + $30 },
+                              on: {
+                                click: function($event) {
+                                  return _vm.$handleViewEvent($event)
+                                }
+                              }
+                            },
+                            [
+                              _c("v-uni-view", {
+                                staticClass: _vm._$g("14-" + $30, "sc"),
+                                attrs: { _i: "14-" + $30 }
+                              })
+                            ],
+                            1
+                          ),
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("15-" + $30, "sc"),
+                              attrs: { _i: "15-" + $30 },
+                              on: {
+                                click: function($event) {
+                                  return _vm.$handleViewEvent($event)
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("16-" + $30, "sc"),
+                                  attrs: { _i: "16-" + $30 }
+                                },
+                                [_vm._v(_vm._$g("16-" + $30, "t0-0"))]
+                              ),
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("17-" + $30, "sc"),
+                                  attrs: { _i: "17-" + $30 }
+                                },
+                                [_vm._v(_vm._$g("17-" + $30, "t0-0"))]
+                              )
+                            ],
+                            1
+                          ),
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("18-" + $30, "sc"),
+                              attrs: { _i: "18-" + $30 }
+                            },
+                            [
+                              _c("v-uni-view", {
+                                staticClass: _vm._$g("19-" + $30, "sc"),
+                                attrs: { _i: "19-" + $30 }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
                       )
-                    ],
+                    }),
                     1
+                  ),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+                    [_vm._v("下拉加载更多...")]
                   )
-                }),
+                ],
                 1
               )
             ],
@@ -2871,8 +2976,8 @@ var render = function() {
         ],
         1
       ),
-      _c("loading", { attrs: { _i: 12 } }),
-      _c("my-audio", { attrs: { _i: 13 } })
+      _c("loading", { attrs: { _i: 21 } }),
+      _c("my-audio", { attrs: { _i: 22 } })
     ],
     1
   )
@@ -2968,7 +3073,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! @/static/images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.search_body[data-v-6337d5d4] {\r\n  height: auto;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 100%;\r\n  height: 100%;\n}\n.search_body .header[data-v-6337d5d4] {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 120rpx;\r\n  background-color: #fff;\n}\n.search_body .header .inp[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  position: absolute;\r\n  left: 50%;\r\n  bottom: 10rpx;\r\n  width: 500rpx;\r\n  height: 50rpx;\r\n  background-color: #f5f5f5;\r\n  border-radius: 50px;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\n}\n.search_body .header .inp uni-input[data-v-6337d5d4] {\r\n  width: 90%;\r\n  height: 80%;\r\n  padding-left: 40rpx;\r\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat;\r\n  background-size: 32rpx 32rpx;\r\n  background-position: left center;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\n}\n.search_body .header uni-text[data-v-6337d5d4] {\r\n  position: absolute;\r\n  top: 50%;\r\n  right: 20rpx;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\r\n  margin-top: 5rpx;\n}\n.search_body .body[data-v-6337d5d4] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\n}\n.search_body .body .item[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 92%;\r\n  margin: 10px auto;\r\n  background-color: #fff;\r\n  border-radius: 5px;\n}\n.search_body .body .item h2[data-v-6337d5d4] {\r\n  width: 100%;\r\n  height: 60rpx;\r\n  line-height: 60rpx;\r\n  padding-left: 20rpx;\r\n  font-weight: bold;\r\n  border-bottom: 1px solid #f5f5f5;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\n}\n.search_body .body .item .song[data-v-6337d5d4] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\n}\n.search_body .body .item .song .songinfo[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  padding-left: 20rpx;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  border-bottom: 1px solid #F5F5F5;\n}\n.search_body .body .item .song .songinfo uni-text[data-v-6337d5d4] {\r\n  line-height: 150%;\n}\n.search_body .body .item .song .songinfo .name[data-v-6337d5d4] {\r\n  color: #0099ff;\n}\n.search_body .body .item .song .songinfo .artist[data-v-6337d5d4] {\r\n  color: #ccc;\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.search_body[data-v-6337d5d4] {\r\n  height: auto;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 100%;\r\n  height: 100%;\n}\n.search_body .header[data-v-6337d5d4] {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 120rpx;\r\n  background-color: #fff;\n}\n.search_body .header .inp[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  position: absolute;\r\n  left: 10rpx;\r\n  bottom: 10rpx;\r\n  width: 80%;\r\n  height: 50rpx;\r\n  background-color: #f8f8f8;\r\n  border-radius: 50px;\r\n  -webkit-box-shadow: inset 1px 1px 2px 0px #ccc;\r\n          box-shadow: inset 1px 1px 2px 0px #ccc;\n}\n.search_body .header .inp uni-input[data-v-6337d5d4] {\r\n  width: 90%;\r\n  height: 80%;\r\n  padding-left: 40rpx;\r\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat;\r\n  background-size: 24rpx 24rpx;\r\n  background-position: left center;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\n}\n.search_body .header .inp .empty[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  position: absolute;\r\n  right: 10rpx;\r\n  width: 50rpx;\r\n  height: 50rpx;\n}\n.search_body .header .inp .empty .iconfont[data-v-6337d5d4] {\r\n  font-size: 16px;\n}\n.search_body .header uni-text[data-v-6337d5d4] {\r\n  position: absolute;\r\n  bottom: 25rpx;\r\n  right: 50rpx;\n}\n.search_body .body[data-v-6337d5d4] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  height: calc(100vh - 220rpx);\n}\n.search_body .body uni-scroll-view[data-v-6337d5d4] {\r\n  width: 100%;\r\n  height: 100%;\n}\n.search_body .body uni-scroll-view .item[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 92%;\r\n  margin: 10px auto;\r\n  background-color: #fff;\r\n  border-radius: 5px;\n}\n.search_body .body uni-scroll-view .item .refresh[data-v-6337d5d4] {\r\n  padding: 10px;\r\n  text-align: center;\r\n  color: #ccc;\n}\n.search_body .body uni-scroll-view .item h2[data-v-6337d5d4] {\r\n  width: 100%;\r\n  height: 60rpx;\r\n  line-height: 60rpx;\r\n  padding-left: 20rpx;\r\n  font-weight: bold;\r\n  border-bottom: 1px solid #f5f5f5;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\n}\n.search_body .body uni-scroll-view .item .song[data-v-6337d5d4] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\n}\n.search_body .body uni-scroll-view .item .song .songinfo[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  border-bottom: 1px solid #F5F5F5;\n}\n.search_body .body uni-scroll-view .item .song .songinfo .song_add[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 60rpx;\r\n  height: 60rpx;\n}\n.search_body .body uni-scroll-view .item .song .songinfo .song_add .iconfont[data-v-6337d5d4] {\r\n  font-size: 18px;\n}\n.search_body .body uni-scroll-view .item .song .songinfo .song_title[data-v-6337d5d4] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\n}\n.search_body .body uni-scroll-view .item .song .songinfo .song_title .name[data-v-6337d5d4] {\r\n  color: #0099ff;\n}\n.search_body .body uni-scroll-view .item .song .songinfo .song_title .artist[data-v-6337d5d4] {\r\n  color: #ccc;\r\n  font-size: 12px;\n}\n.search_body .body uni-scroll-view .item .song .songinfo .song_msg[data-v-6337d5d4] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 60rpx;\r\n  height: 60rpx;\r\n  -webkit-transform: rotate(90deg);\r\n          transform: rotate(90deg);\n}\n.search_body .body uni-scroll-view .item .song .songinfo uni-text[data-v-6337d5d4] {\r\n  line-height: 150%;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -3410,44 +3515,46 @@ var render = function() {
                   attrs: { _i: 3 }
                 },
                 [
-                  _c(
-                    "v-uni-view",
-                    {
-                      staticClass: _vm._$g(4, "sc"),
-                      style: _vm._$g(4, "s"),
-                      attrs: { _i: 4 },
-                      on: {
-                        touchstart: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                        touchmove: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                        touchend: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        }
-                      }
-                    },
-                    [
-                      _c(
+                  _vm._$g(4, "i")
+                    ? _c(
                         "v-uni-view",
                         {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm._$g(5, "v-show"),
-                              expression: "_$g(5,'v-show')"
+                          staticClass: _vm._$g(4, "sc"),
+                          style: _vm._$g(4, "s"),
+                          attrs: { _i: 4 },
+                          on: {
+                            touchstart: function($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                            touchmove: function($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                            touchend: function($event) {
+                              return _vm.$handleViewEvent($event)
                             }
-                          ],
-                          staticClass: _vm._$g(5, "sc"),
-                          attrs: { _i: 5 }
+                          }
                         },
-                        [_vm._v(_vm._$g(5, "t0-0"))]
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm._$g(5, "v-show"),
+                                  expression: "_$g(5,'v-show')"
+                                }
+                              ],
+                              staticClass: _vm._$g(5, "sc"),
+                              attrs: { _i: 5 }
+                            },
+                            [_vm._v(_vm._$g(5, "t0-0"))]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
-                  )
+                    : _vm._e()
                 ],
                 1
               )
@@ -3513,7 +3620,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-  props: ["current", "duration", "isInfo", "isTouchTime", "isTouchmove", "radius", "height"],
+  props: ["current", "duration", "isInfo", "isTouchTime", "isTouchmove", "radius", "height", "progressNotSelectBgColor", "progressSelectBgColor", "radiusBgColor", "isRadius"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -3966,44 +4073,46 @@ var render = function() {
                   attrs: { _i: 3 }
                 },
                 [
-                  _c(
-                    "v-uni-view",
-                    {
-                      staticClass: _vm._$g(4, "sc"),
-                      style: _vm._$g(4, "s"),
-                      attrs: { _i: 4 },
-                      on: {
-                        touchstart: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                        touchmove: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                        touchend: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        }
-                      }
-                    },
-                    [
-                      _c(
+                  _vm._$g(4, "i")
+                    ? _c(
                         "v-uni-view",
                         {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm._$g(5, "v-show"),
-                              expression: "_$g(5,'v-show')"
+                          staticClass: _vm._$g(4, "sc"),
+                          style: _vm._$g(4, "s"),
+                          attrs: { _i: 4 },
+                          on: {
+                            touchstart: function($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                            touchmove: function($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                            touchend: function($event) {
+                              return _vm.$handleViewEvent($event)
                             }
-                          ],
-                          staticClass: _vm._$g(5, "sc"),
-                          attrs: { _i: 5 }
+                          }
                         },
-                        [_vm._v(_vm._$g(5, "t0-0"))]
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm._$g(5, "v-show"),
+                                  expression: "_$g(5,'v-show')"
+                                }
+                              ],
+                              staticClass: _vm._$g(5, "sc"),
+                              attrs: { _i: 5 }
+                            },
+                            [_vm._v(_vm._$g(5, "t0-0"))]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
-                  )
+                    : _vm._e()
                 ],
                 1
               )
@@ -4069,7 +4178,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-  props: ["current", "duration", "isInfo", "isTouchTime", "isTouchmove", "radius", "height"],
+  props: ["current", "duration", "isInfo", "isTouchTime", "isTouchmove", "radius", "height", "progressNotSelectBgColor", "progressSelectBgColor", "radiusBgColor", "isRadius"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -4603,7 +4712,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../Tool/programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.myaudio[data-v-6fd0518c] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 100%;\r\n  height: 100rpx;\r\n  background-color: #f3f4f8;\r\n  -webkit-box-shadow: 1px -2px 8px 0px #ccc;\r\n          box-shadow: 1px -2px 8px 0px #ccc;\n}\n.myaudio .info[data-v-6fd0518c] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  padding: 0 30rpx 0 30rpx;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\n}\n.myaudio .info .pic[data-v-6fd0518c] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 70rpx;\r\n  height: 70rpx;\r\n  background-color: #fff;\r\n  border-radius: 50%;\n}\n.myaudio .info .pic uni-image[data-v-6fd0518c] {\r\n  width: 90%;\r\n  height: 90%;\r\n  border-radius: 50%;\n}\n.myaudio .info .title[data-v-6fd0518c] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  height: 70rpx;\r\n  font-size: 12px;\n}\n.myaudio .info .control[data-v-6fd0518c] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: justify;\r\n  -webkit-justify-content: space-between;\r\n          justify-content: space-between;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 140rpx;\r\n  height: 70rpx;\n}\n.myaudio .info .control .size[data-v-6fd0518c] {\r\n  font-size: 25px;\n}\n.myaudio .progress-song[data-v-6fd0518c] {\r\n  width: 100%;\r\n  height: 20rpx;\n}\n.myaudio .imgRotate[data-v-6fd0518c] {\r\n  -webkit-animation: rotate-data-v-6fd0518c 20s linear infinite;\r\n          animation: rotate-data-v-6fd0518c 20s linear infinite;\n}\n@-webkit-keyframes rotate-data-v-6fd0518c {\n0% {\r\n    -webkit-transform: rotate(0deg);\r\n            transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\r\n            transform: rotate(360deg);\n}\n}\n@keyframes rotate-data-v-6fd0518c {\n0% {\r\n    -webkit-transform: rotate(0deg);\r\n            transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\r\n            transform: rotate(360deg);\n}\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.myaudio[data-v-6fd0518c] {\r\n  position: relative;\r\n  bottom: 0;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 100%;\r\n  height: 100rpx;\r\n  background-color: #fff;\r\n  -webkit-box-shadow: 1px -2px 8px 0px #ccc;\r\n          box-shadow: 1px -2px 8px 0px #ccc;\r\n  border-radius: 8px;\n}\n.myaudio .info[data-v-6fd0518c] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  padding: 0 30rpx 0 30rpx;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\n}\n.myaudio .info .pic[data-v-6fd0518c] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 70rpx;\r\n  height: 70rpx;\r\n  background-color: #fff;\r\n  border-radius: 50%;\n}\n.myaudio .info .pic uni-image[data-v-6fd0518c] {\r\n  width: 90%;\r\n  height: 90%;\r\n  border-radius: 50%;\n}\n.myaudio .info .title[data-v-6fd0518c] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  height: 70rpx;\r\n  font-size: 12px;\n}\n.myaudio .info .control[data-v-6fd0518c] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: justify;\r\n  -webkit-justify-content: space-between;\r\n          justify-content: space-between;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 140rpx;\r\n  height: 70rpx;\n}\n.myaudio .info .control .size[data-v-6fd0518c] {\r\n  font-size: 25px;\n}\n.myaudio .progress-song[data-v-6fd0518c] {\r\n  width: 100%;\r\n  height: 20rpx;\n}\n.myaudio .imgRotate[data-v-6fd0518c] {\r\n  -webkit-animation: rotate-data-v-6fd0518c 20s linear infinite;\r\n          animation: rotate-data-v-6fd0518c 20s linear infinite;\n}\n@-webkit-keyframes rotate-data-v-6fd0518c {\n0% {\r\n    -webkit-transform: rotate(0deg);\r\n            transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\r\n            transform: rotate(360deg);\n}\n}\n@keyframes rotate-data-v-6fd0518c {\n0% {\r\n    -webkit-transform: rotate(0deg);\r\n            transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\r\n            transform: rotate(360deg);\n}\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -4662,7 +4771,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\r\n/**\r\n * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)\r\n * http://cssreset.com\r\n */\nhtml, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, uni-form, uni-label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, uni-canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, uni-audio, uni-video, uni-input {\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  font-size: 100%;\r\n  font-weight: normal;\r\n  vertical-align: baseline;\n}\r\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, footer, header, menu, nav, section {\r\n  display: block;\n}\nbody {\r\n  line-height: 1;\n}\nblockquote, q {\r\n  quotes: none;\n}\nblockquote:before, blockquote:after, q:before, q:after {\r\n  content: none;\n}\ntable {\r\n  border-collapse: collapse;\r\n  border-spacing: 0;\n}\r\n/* custom */\na {\r\n  color: #7e8c8d;\r\n  -webkit-backface-visibility: hidden;\r\n  text-decoration: none;\n}\nli {\r\n  list-style: none;\n}\nbody {\r\n  -webkit-text-size-adjust: none;\r\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n@font-face {\r\n  font-family: \"iconfont\"; /* Project id 2720100 */\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format('woff2'),\r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format('woff'),\r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format('truetype');\n}\n.iconfont {\r\n  font-family: \"iconfont\" !important;\r\n  font-size: 16px;\r\n  font-style: normal;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\n}\n.icon-bofangzhong:before {\r\n  content: \"\\e68f\";\n}\n.icon-zanting:before {\r\n  content: \"\\e691\";\n}\n.icon-bofangliebiao:before {\r\n  content: \"\\e696\";\n}\n.icon-bofangduilie:before {\r\n  content: \"\\e699\";\n}\n.icon-suijibofang:before {\r\n  content: \"\\e6a0\";\n}\n.icon-shunxubofang:before {\r\n  content: \"\\e6a1\";\n}\n.icon-danquxunhuan:before {\r\n  content: \"\\e6a2\";\n}\n.icon-liebiaoxunhuan:before {\r\n  content: \"\\e6a3\";\n}\n.icon-shoucang:before {\r\n  content: \"\\e648\";\n}\n.icon-share-fill:before {\r\n  content: \"\\e637\";\n}\n.icon-dian:before {\r\n  content: \"\\e6d3\";\n}\n.icon-xiangxia:before {\r\n  content: \"\\e600\";\n}\n.icon-shizijiahao3:before {\r\n  content: \"\\e65b\";\n}\n.icon-play--filled--alt:before {\r\n  content: \"\\e609\";\n}\n.icon-pause--filled:before {\r\n  content: \"\\e60a\";\n}\n.icon-shangyishou:before {\r\n  content: \"\\e61e\";\n}\n.icon-xiayishou:before {\r\n  content: \"\\e61f\";\n}\r\n/*每个页面公共css */\nuni-page-body,\r\n#app,\r\nbody,\r\nbody {\r\n  height: 100%;\r\n  font-size: 24rpx;\r\n  background-color: #f3f4f8;\r\n  overflow: hidden;\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\r\n/**\r\n * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)\r\n * http://cssreset.com\r\n */\nhtml, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, uni-form, uni-label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, uni-canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, uni-audio, uni-video, uni-input {\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  font-size: 100%;\r\n  font-weight: normal;\r\n  vertical-align: baseline;\n}\r\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, footer, header, menu, nav, section {\r\n  display: block;\n}\nbody {\r\n  line-height: 1;\n}\nblockquote, q {\r\n  quotes: none;\n}\nblockquote:before, blockquote:after, q:before, q:after {\r\n  content: none;\n}\ntable {\r\n  border-collapse: collapse;\r\n  border-spacing: 0;\n}\r\n/* custom */\na {\r\n  color: #7e8c8d;\r\n  -webkit-backface-visibility: hidden;\r\n  text-decoration: none;\n}\nli {\r\n  list-style: none;\n}\nbody {\r\n  -webkit-text-size-adjust: none;\r\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n@font-face {\r\n  font-family: \"iconfont\"; /* Project id 2720100 */\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format('woff2'),\r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format('woff'),\r\n       url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format('truetype');\n}\n.iconfont {\r\n  font-family: \"iconfont\" !important;\r\n  font-size: 16px;\r\n  font-style: normal;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\n}\n.icon-jia:before {\r\n  content: \"\\e656\";\n}\n.icon-shezhi:before {\r\n  content: \"\\e604\";\n}\n.icon-theme:before {\r\n  content: \"\\e66f\";\n}\n.icon-jia1:before {\r\n  content: \"\\e608\";\n}\n.icon-cha:before {\r\n  content: \"\\e61c\";\n}\n.icon-shuaxin:before {\r\n  content: \"\\e616\";\n}\n.icon-shanchu:before {\r\n  content: \"\\e615\";\n}\n.icon-bofangzhong:before {\r\n  content: \"\\e68f\";\n}\n.icon-zanting:before {\r\n  content: \"\\e691\";\n}\n.icon-bofangliebiao:before {\r\n  content: \"\\e696\";\n}\n.icon-bofangduilie:before {\r\n  content: \"\\e699\";\n}\n.icon-suijibofang:before {\r\n  content: \"\\e6a0\";\n}\n.icon-shunxubofang:before {\r\n  content: \"\\e6a1\";\n}\n.icon-danquxunhuan:before {\r\n  content: \"\\e6a2\";\n}\n.icon-liebiaoxunhuan:before {\r\n  content: \"\\e6a3\";\n}\n.icon-shoucang:before {\r\n  content: \"\\e648\";\n}\n.icon-share-fill:before {\r\n  content: \"\\e637\";\n}\n.icon-dian:before {\r\n  content: \"\\e6d3\";\n}\n.icon-xiangxia:before {\r\n  content: \"\\e600\";\n}\n.icon-shizijiahao3:before {\r\n  content: \"\\e65b\";\n}\n.icon-play--filled--alt:before {\r\n  content: \"\\e609\";\n}\n.icon-pause--filled:before {\r\n  content: \"\\e60a\";\n}\n.icon-shangyishou:before {\r\n  content: \"\\e61e\";\n}\n.icon-xiayishou:before {\r\n  content: \"\\e61f\";\n}\r\n/*每个页面公共css */\nuni-page-body,\r\n#app,\r\nbody,\r\nbody {\r\n  height: 100%;\r\n  font-size: 24rpx;\r\n  background-color: #f3f4f8;\r\n  overflow: hidden;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -4939,7 +5048,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../Tool/programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.myaudio[data-v-0db898ea] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 100%;\r\n  height: 100rpx;\r\n  background-color: #f3f4f8;\r\n  -webkit-box-shadow: 1px -2px 8px 0px #ccc;\r\n          box-shadow: 1px -2px 8px 0px #ccc;\n}\n.myaudio .info[data-v-0db898ea] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  padding: 0 30rpx 0 30rpx;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\n}\n.myaudio .info .pic[data-v-0db898ea] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 70rpx;\r\n  height: 70rpx;\r\n  background-color: #fff;\r\n  border-radius: 50%;\n}\n.myaudio .info .pic uni-image[data-v-0db898ea] {\r\n  width: 90%;\r\n  height: 90%;\r\n  border-radius: 50%;\n}\n.myaudio .info .title[data-v-0db898ea] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  height: 70rpx;\r\n  font-size: 12px;\n}\n.myaudio .info .control[data-v-0db898ea] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: justify;\r\n  -webkit-justify-content: space-between;\r\n          justify-content: space-between;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 140rpx;\r\n  height: 70rpx;\n}\n.myaudio .info .control .size[data-v-0db898ea] {\r\n  font-size: 25px;\n}\n.myaudio .progress-song[data-v-0db898ea] {\r\n  width: 100%;\r\n  height: 20rpx;\n}\n.myaudio .imgRotate[data-v-0db898ea] {\r\n  -webkit-animation: rotate-data-v-0db898ea 20s linear infinite;\r\n          animation: rotate-data-v-0db898ea 20s linear infinite;\n}\n@-webkit-keyframes rotate-data-v-0db898ea {\n0% {\r\n    -webkit-transform: rotate(0deg);\r\n            transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\r\n            transform: rotate(360deg);\n}\n}\n@keyframes rotate-data-v-0db898ea {\n0% {\r\n    -webkit-transform: rotate(0deg);\r\n            transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\r\n            transform: rotate(360deg);\n}\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.myaudio[data-v-0db898ea] {\r\n  position: relative;\r\n  bottom: 0;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 100%;\r\n  height: 100rpx;\r\n  background-color: #fff;\r\n  -webkit-box-shadow: 1px -2px 8px 0px #ccc;\r\n          box-shadow: 1px -2px 8px 0px #ccc;\r\n  border-radius: 8px;\n}\n.myaudio .info[data-v-0db898ea] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  padding: 0 30rpx 0 30rpx;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\n}\n.myaudio .info .pic[data-v-0db898ea] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 70rpx;\r\n  height: 70rpx;\r\n  background-color: #fff;\r\n  border-radius: 50%;\n}\n.myaudio .info .pic uni-image[data-v-0db898ea] {\r\n  width: 90%;\r\n  height: 90%;\r\n  border-radius: 50%;\n}\n.myaudio .info .title[data-v-0db898ea] {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  height: 70rpx;\r\n  font-size: 12px;\n}\n.myaudio .info .control[data-v-0db898ea] {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: flex;\r\n  -webkit-box-pack: justify;\r\n  -webkit-justify-content: space-between;\r\n          justify-content: space-between;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n          align-items: center;\r\n  width: 140rpx;\r\n  height: 70rpx;\n}\n.myaudio .info .control .size[data-v-0db898ea] {\r\n  font-size: 25px;\n}\n.myaudio .progress-song[data-v-0db898ea] {\r\n  width: 100%;\r\n  height: 20rpx;\n}\n.myaudio .imgRotate[data-v-0db898ea] {\r\n  -webkit-animation: rotate-data-v-0db898ea 20s linear infinite;\r\n          animation: rotate-data-v-0db898ea 20s linear infinite;\n}\n@-webkit-keyframes rotate-data-v-0db898ea {\n0% {\r\n    -webkit-transform: rotate(0deg);\r\n            transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\r\n            transform: rotate(360deg);\n}\n}\n@keyframes rotate-data-v-0db898ea {\n0% {\r\n    -webkit-transform: rotate(0deg);\r\n            transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\r\n            transform: rotate(360deg);\n}\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

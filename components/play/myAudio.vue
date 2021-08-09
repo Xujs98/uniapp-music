@@ -17,7 +17,7 @@
 		</view>
 		<!-- 进度条&歌曲name -->
 		<view class="progress-song">
-			<progressBar :current="currentTime" :duration="duration"  :isTouchmove="false" :radius="5" :height="5"></progressBar>
+			<progressBar :current="currentTime" :duration="duration"  :isTouchmove="false" :radius="5" :height="5" ></progressBar>
 		</view>
 	</view>
 </template>
@@ -78,12 +78,15 @@
 
 <style lang="scss" scoped>
 	.myaudio {
+		position: relative;
+		bottom: 0;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 		height: 100rpx;
-		background-color: #f3f4f8;
+		background-color: #fff;
 		box-shadow: 1px -2px 8px 0px #ccc;
+		border-radius: 8px;
 		.info {
 			flex: 1;
 			display: flex;

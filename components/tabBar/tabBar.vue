@@ -7,7 +7,7 @@
 		</view>
 		<!-- 播放器 -->
 		<view class="nav_music_progress">
-			<view class="third">
+			<view class="third" :style="{backgroundImage: 'url(' + currentSong.pic + ')' }" @tap="picClick" >
 				<view class="second"></view>
 				<view class="first"></view>
 			</view>
@@ -51,6 +51,17 @@
 				})
 				this.tabData[e].isShow = true
 				this.$emit('barClick', e)
+			},
+			picClick() {
+				this.$Goto.play()
+			}
+		},
+		computed: {
+			currentSong() {
+				if (!this.$store.getters.currentSong.pic) {
+					this.$store.getters.currentSong.pic = "/static/images/awn.png"
+				}
+				return this.$store.getters.currentSong
 			}
 		}
 	}
@@ -93,7 +104,7 @@
 				position: relative;
 				width: 90rpx;
 				height: 90rpx;
-				background-image: url("/static/images/me.png");
+				background-image: url("/static/images/awn.png");
 				background-size: 100% 100%;
 				border-radius: 100%;
 				animation: autoRotate 10s linear infinite;
