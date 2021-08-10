@@ -16,7 +16,7 @@ Vue.filter('time', (val) => {
 	let hour = _frames(parseInt(val / sixty / sixty))
 	let minute = _frames(parseInt(val / sixty))
 	let second = _frames(parseInt(val % sixty))
-	return hour >= 1? hour + ':' + (minute) + ':' + (second ) : (minute ) + ':' + (second)
+	return hour >= 1? hour + ':' + minute + ':' + second : minute + ':' + second
 })
 function _frames(val) {
 	if (val > 59) {

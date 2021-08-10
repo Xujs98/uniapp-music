@@ -50,4 +50,9 @@ function loop() {
 	audio.play()
 }
 
+// 播放错误
+audio.onError((error) => {
+	console.log(error)
+})
+
 export default audio

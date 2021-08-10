@@ -21,10 +21,13 @@ const PLAY_URL_TYPE = {
 }
 
 // 收藏列表
-const COLLECTLIST_KEY = 'collectList'
+const COLLECTLIST_KEY = '__collectList__'
+// 限制数量
+const MAXLEN = 100
 
 export {
     PLAY_MODE,
 	PLAY_URL_TYPE,
-	COLLECTLIST_KEY
+	COLLECTLIST_KEY,
+	MAXLEN
 }

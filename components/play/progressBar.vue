@@ -162,10 +162,8 @@
 				get() {
 					if (this.look) {
 						return this.pageX 
-						
 					}
-					
-					return this.current * (this.progress.width / this.duration) + 10 || 0
+					return this.current * (this.progress.width / this.duration) + 10 || 10
 				}
 				
 			},

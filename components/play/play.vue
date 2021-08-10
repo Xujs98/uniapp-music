@@ -90,14 +90,14 @@
 <script>
 	import progressBar from './progressBar'
 	import control from './control'
-	import { PLAY_MODE, COLLECTLIST_KEY } from '../../conf/constant.js'
+	import { PLAY_MODE, COLLECTLIST_KEY, MAXLEN } from '../../conf/constant.js'
 	import { mapActions } from 'vuex'
+	import { save, remove } from './use-store.js'
 	export default {
 		
 		data() {
 			return {
 				audioSrc: '',
-				isCollect: false,
 			}
 		},
 		onLoad(option) {
@@ -105,7 +105,7 @@
 			this.$audio.src = this.currentSong.url
 		},
 		onShow() {
-			this.getCollectList()
+			// this.getCollectList()
 		},
 		onBackPress() {
 			this.$store.commit('setFullScreen', false)
@@ -130,47 +130,35 @@
 			toCollect() {
 				if (this.isCollect) {
 					// remov
-					const index = this.collectList.findIndex(item => item.id === this.currentSong.id)
-					const collectList = this.collectList
-					collectList.splice(index, 1)
-					this.$store.commit('setCollectList', collectList)
-					this.setCollectList(false)
+					// const index = this.collectList.findIndex(item => item.id === this.currentSong.id)
+					// const collectList = this.collectList
+					// collectList.splice(index, 1)
+					// this.$store.commit('setCollectList', collectList)
+					// this.setCollectList(false)
 				} else {
 					// save
-					const collectList = this.collectList
-					collectList.push(this.currentSong)
-					this.$store.commit('setCollectList', collectList)
-					this.setCollectList(true)
-				}
-			},
-			// 获取收藏列表
-			getCollectList() {
-				try {
-					const collectList = uni.getStorageSync('collectList')
-					if (collectList.length === 0) return 
-					this.$store.commit('setCollectList', collectList)
-					this.isCollect = this.collectList.findIndex(item => item.id === this.currentSong.id) > -1
-				} 
-				catch(ex) {
-					console.log('读取失败')
+					// const collectList = this.collectList
+					// collectList.push(this.currentSong)
+					// this.$store.commit('setCollectList', collectList)
+					// this.setCollectList(true)
 				}
 				
+				let list
+				if (this.isCollect) {
+					// remove
+					list = remove(COLLECTLIST_KEY, this.compare)
+				} else {
+					list = save(this.currentSong, COLLECTLIST_KEY, this.compare, MAXLEN)
+				}
+				
+				this.$store.commit('setCollectList', list)
+			},
+			compare(item) {
+				return item.id === this.currentSong.id
 			},
 			// 设置收藏列表
-			setCollectList(tf) {
-				const self = this
-				try {
-					uni.setStorage({
-						key: COLLECTLIST_KEY,
-						data: this.collectList,
-						success() {
-							self.isCollect = tf
-						}
-					})
-				}
-				catch(ex) {
-					console.log('缓存收藏列表失败')
-				}
+			setCollectList(song) {
+				
 			},
 			...mapActions(['changeMode'])
 		},
@@ -214,6 +202,10 @@
 			// 收藏列表
 			collectList() {
 				return this.$store.state.collectList
+			},
+			// 是否存在收藏列表
+			isCollect() {
+				return this.collectList.findIndex(item => item.id === this.currentSong.id) > -1
 			}
 		},
 		// 监听
@@ -222,7 +214,6 @@
 				handler(newSong) {
 					if (!newSong.id || !newSong.url) return
 					this.$audio.src = newSong.url
-					this.getCollectList()
 				},
 				immediate: true,
 				deep: true
