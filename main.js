@@ -11,7 +11,7 @@ import audio from './audio/myaudio.js'
 
 // 全局过滤器
 Vue.filter('time', (val) => {
-	// if(!val) return ''
+	if(val === 5832) return '00:00'
 	const sixty = 60
 	let hour = _frames(parseInt(val / sixty / sixty))
 	let minute = _frames(parseInt(val / sixty))

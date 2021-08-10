@@ -60,6 +60,10 @@ const mutations = {
 	// 设置音效长度
 	setDuration(state, time) {
 		state.duration = time
+	},
+	// 设置收藏列表
+	setCollectList(state, list) {
+		state.collectList = list
 	}
 }
 

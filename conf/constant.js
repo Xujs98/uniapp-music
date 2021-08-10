@@ -20,7 +20,11 @@ const PLAY_URL_TYPE = {
 	flac: 'url_flac'
 }
 
+// 收藏列表
+const COLLECTLIST_KEY = 'collectList'
+
 export {
     PLAY_MODE,
-	PLAY_URL_TYPE
+	PLAY_URL_TYPE,
+	COLLECTLIST_KEY
 }

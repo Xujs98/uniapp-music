@@ -14,7 +14,7 @@
 				<!-- 选中 -->
 				<view class="actionColor" 
 				:style="{
-					width:  currentWidth + 'px',
+					width:  currentWidth + 'px' ,
 					background: progressSelectBgColor
 					
 				}"
@@ -162,8 +162,10 @@
 				get() {
 					if (this.look) {
 						return this.pageX 
+						
 					}
-					return this.current * (this.progress.width / this.duration) + 10
+					
+					return this.current * (this.progress.width / this.duration) + 10 || 0
 				}
 				
 			},

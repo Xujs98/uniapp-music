@@ -27,7 +27,9 @@ const state = {
 	// 音效长度
 	duration: 0,
 	// 音质类型
-	playUrlType: PLAY_URL_TYPE.mp3
+	playUrlType: PLAY_URL_TYPE.mp3,
+	// 收藏列表
+	collectList: []
 
 }
 export default state
